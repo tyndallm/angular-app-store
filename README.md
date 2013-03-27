@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Angular Express Seed
 
 Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
@@ -76,3 +77,7 @@ A simple [blog](https://github.com/btford/angular-express-blog) based on this se
 For more information on AngularJS please check out http://angularjs.org/
 For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
 your friends.
+=======
+angular-app-store
+=================
+>>>>>>> 439e68195209e5e1491e644616604065d7c38bea
