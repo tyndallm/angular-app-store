@@ -1,0 +1,60 @@
+<div class="container-fluid" ng-controller="AppStoreCtrl">
+    <div class="row-fluid">
+        <!-- start categories -->
+        <div class="span3 bs-docs-sidebar">
+          <ul class="nav nav-list bs-docs-sidenav animated">
+            <li class="sidebox-header">App Categories</li>
+            <li class="active"><a href="#modal"><i class="icon-chevron-right"></i> Featured</a></li>
+            <li class=""><a href="#dropdown"><i class="icon-chevron-right"></i> iOS</a></li>
+            <li class=""><a href="#navbar"><i class="icon-chevron-right"></i> Android</a></li>
+            <li class=""><a href="#tooltip"><i class="icon-chevron-right"></i> Other</a></li>
+          </ul>
+
+          <!-- start popular -->
+          <ol class="nav nav-list bs-docs-sidenav animated">
+            <li class="sidebox-header">Most Recently Added</li>
+            <li class=""><a href="#modal"><i class="icon-chevron-right"></i>
+                <p>1. SwiftKey keyboard</p>
+                <small> SWIFTKEY</small>
+
+                </a></li>
+            <li class=""><a href="#dropdown"><i class="icon-chevron-right"></i>2. Titanium Backup Pro</a></li>
+            <li class=""><a href="#navbar"><i class="icon-chevron-right"></i>3. Temple Run</a></li>
+            <li class=""><a href="#tooltip"><i class="icon-chevron-right"></i>4. Minecraft</a></li>
+          </ol>
+        </div> <!-- end categories -->
+
+        
+
+
+
+        <div class="span9">
+            <div class="page-header">
+                <h1>Featured Apps</h1>
+                <small>Instant access to the most popular and best selling apps!</small>
+            </div>
+            <div ng-repeat="app in appList">
+                <div class="row-fluid">
+                  <div>
+                    <div class="media well">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-rounded appIcon" src="http://placehold.it/100x100.png">
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading"> {{ app.name}} <span class="platform-label label">{{ app.platform}}</span></h4>
+                          <small class="client-heading"> {{ app.client}} </small>
+                          <p> {{ app.description }} </p>
+                          
+                          <div class="detail-button">
+                            <a class="pull-right btn btn-warning" ng-href="apps/{{ app.id }}">View App &raquo;</a>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

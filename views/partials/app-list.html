@@ -1,0 +1,27 @@
+<div class="container" ng-controller="AppListCtrl">
+	<div class="alert alert-info">
+		<p>To add an app simply click the button below and fill out the form</p>
+		<button class="btn btn-primary"  ng-controller="MyModalCtrl" bs-modal="'partials/modal.html'">Add App</button>
+	</div>
+	<div ng-repeat="app in appList">
+		<div class="row">
+          <div class="span12">
+            <div class="media well">
+                <a class="pull-left" href="#">
+                  <img class="media-object img-rounded appIcon" src="http://placehold.it/100x100.png">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading"> {{ app.name}} <span class="platform-label label">{{ app.platform}}</span></h4>
+                  <small class="client-heading"> {{ app.client}} </small>
+                  <p> {{ app.description }} </p>
+                  
+                  <div class="detail-button">
+                    <a class="pull-right btn btn-warning" href="apps/{{ app.id }}">View App &raquo;</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+		
+	</div>
+</div>
