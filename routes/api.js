@@ -87,7 +87,7 @@ exports.addApp = function (req, res) {
 		  return res.json({error: "Error saving app"});
 	  } else {
 	  	console.log("Success");
-	  	res.json("Success");
+	  	res.json(newApp);
 	  }
 	  
 	});
@@ -95,14 +95,31 @@ exports.addApp = function (req, res) {
 
 // PUT
 exports.editApp = function (req, res) {
-	var id = req.params.id;
+	var objectId = req.params.id;
+	console.log(objectId);
 
-	if(id >= 0 && id < data.apps.length) {
-		data.apps[id] = req.body;
-		res.json(true);
-	} else {
-		res.json(false);
-	}
+	App.findOne({ _id: objectId }, function(err, app) {
+		if(err) {
+		  return res.json({error: "Error fetching app" });
+		}
+		else{
+
+			app.name = req.body.name;
+			app.description = req.body.description;
+			app.client = req.body.client;
+			app.platform = req.body.platform;
+			app.icon_url = req.body.icon_url;
+			app.save(function (err) {
+				if(err) {
+					return res.json({error: "Error saving app"});
+				} else {
+				    console.log("Success");
+				}
+		  
+			});
+			res.json(app);
+		}
+	});
 }
 
 // DELETE

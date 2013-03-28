@@ -36,6 +36,7 @@ function MyModalCtrl($scope, $location, $http) {
 				data: { "client": appClient,
 						"name": appName,
 						"description": appDescription,
+						"icon_url": appIcon,
 						"platform": appPlatform }
 		}).success(function(data, status, headers, config) {
 		    // this callback will be called asynchronously
