@@ -49,7 +49,8 @@ exports.apps = function (req, res) {
 
 exports.app = function (req, res) {
 	var appId = req.params.id;
-	App.find({ id: appId }, function(err, app) {
+
+	App.find({ _id: appId }, function(err, app) {
 		if(err) {
 		  return res.json({error: "Error fetching app" });
 		}

@@ -66,6 +66,7 @@ function AppDetailCtrl($scope, $location, $http, $routeParams) {
 		    // when the response is available
 		    $scope.app = data[0];
 		    console.log($scope.app);
+		    $scope.setFields($scope.app);
 		  }).
 		  error(function(data, status, headers, config) {
 		    // called asynchronously if an error occurs
@@ -74,6 +75,38 @@ function AppDetailCtrl($scope, $location, $http, $routeParams) {
 		    console.log("Error: ", $scope.status);
 		});
 	};
+
+	$scope.setFields = function(app){
+		$scope.appName = app.name;
+		$scope.appClient = app.client;
+		$scope.appDescription = app.description;
+		$scope.appPlatform = app.platform;
+		$scope.appIcon = app.icon_url;
+	};
+
+	$scope.updateApp = function(appName, appClient, appDescription, appIcon, appPlatform) {
+		console.log("updateApp: appId: ", $scope.appId);
+		$http({ url: '../api/app/' + $scope.appId,
+				method: 'PUT',
+				data: { "client": appClient,
+						"name": appName,
+						"description": appDescription,
+						"icon_url": appIcon,
+						"platform": appPlatform }
+		}).success(function(data, status, headers, config) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    $scope.data = data;
+		    console.log($scope.data);
+		  }).
+		  error(function(data, status, headers, config) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		    $scope.status = status;
+		    console.log($scope.status);
+		});
+
+	}
 
 	$scope.fetchApp($scope.appId);
 }
